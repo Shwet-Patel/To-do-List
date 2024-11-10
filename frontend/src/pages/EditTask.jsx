@@ -3,6 +3,7 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { BaseURL } from '../BaseURL';
 
 function EditTask() {
   const [loading , setLoading] = useState(false);
@@ -17,7 +18,7 @@ function EditTask() {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:3000/${id}`)
+    axios.get(BaseURL +`/${id}`)
       .then((response) => {
         console.log(response.data);
         setLoading(false);
@@ -39,7 +40,7 @@ function EditTask() {
 
     setLoading(true);
     axios
-      .put( `http://localhost:3000/${id}`, data)
+      .put( BaseURL + `/${id}`, data)
       .then(() => {
         setLoading(false);
         navigate('/');

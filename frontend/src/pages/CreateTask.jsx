@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { BaseURL } from '../BaseURL';
 
 
 function CreateTask() {
@@ -20,7 +21,7 @@ function CreateTask() {
 
     setLoading(true);
     axios
-      .post( 'http://localhost:3000/', data)
+      .post( BaseURL + '/', data)
       .then(() => {
         setLoading(false);
         navigate('/');

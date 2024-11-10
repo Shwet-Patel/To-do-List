@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
+import { BaseURL } from '../BaseURL';
 
 function DeleteTask() {
   const id = useParams().id;
@@ -11,7 +12,7 @@ function DeleteTask() {
 
   useEffect(()=>{
     setLoading(true);
-    axios.get( `http://localhost:3000/${id}`)
+    axios.get( BaseURL + `/${id}`)
     .then((response)=>{
       console.log(response.data);
       setLoading(false);
@@ -25,7 +26,7 @@ function DeleteTask() {
 
   const handleDelete = () => {
     setLoading(true);
-    axios.delete(`http://localhost:3000/${id}`)
+    axios.delete(  BaseURL + `/${id}`)
       .then((response) => {
         console.log(response);
         setLoading(false);

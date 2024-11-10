@@ -3,7 +3,7 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import { BaseURL } from '../BaseURL';
 
 function ShowTask() {
 
@@ -15,7 +15,7 @@ function ShowTask() {
 
   useEffect(()=>{
     setLoading(true);
-    axios.get( `http://localhost:3000/${id}`)
+    axios.get( BaseURL + `/${id}`)
     .then((response)=>{
       console.log(response.data);
       setLoading(false);

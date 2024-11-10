@@ -2,6 +2,7 @@ import React , {useState , useEffect} from 'react';
 import axios from 'axios';
 import Spinner from '../components/Spinner';
 import { Link , useNavigate } from 'react-router-dom';
+import {BaseURL} from '../BaseURL';
 
 
 import { MdOutlineAddBox , MdOutlineDelete} from 'react-icons/md';
@@ -16,7 +17,7 @@ function Home() {
     useEffect(()=>{
         setLoading(true);
         axios
-            .get('http://localhost:3000/')
+            .get(BaseURL + '/')
             .then((response)=>{
                 console.log(response);
                 setLoading(false);
@@ -33,7 +34,7 @@ function Home() {
         t.isCompleted = !t.isCompleted;
         setLoading(true);
         axios
-        .put(`http://localhost:3000/${t._id}`, t)
+        .put(BaseURL + `/${t._id}`, t)
         .then(() => {
             setLoading(false);
         })
