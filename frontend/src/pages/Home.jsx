@@ -10,6 +10,7 @@ import {BiInfoCircle} from 'react-icons/bi';
 import {AiOutlineEdit} from 'react-icons/ai';
 
 function Home() {
+    const [mode,setMode] = useState(0);
     const [tasks , setTasks] = useState([]);
     const [loading , setLoading] = useState(false);
     const navigate = useNavigate();
@@ -50,6 +51,20 @@ function Home() {
     return (
         <div className=' bg-gray-100 min-h-screen pb-16'>
             <div className='mx-8 text-center text-3xl md:text-5xl py-20 font-semibold' >To-do List</div>
+            <div className='flex my-4 flex-row w-full justify-center gap-4' >
+                <button 
+                  className= {`px-4 py-2 ${mode === 0 ? 'bg-black text-white' : 'bg-white text-black hover:bg-gray-200 hover:text-black'} rounded-lg duration-300`}
+                  onClick={() => {setMode(0)}}
+                  >All</button>
+                <button 
+                  className={`px-4 py-2 ${mode === 1 ? 'bg-black text-white' : 'bg-white text-black hover:bg-gray-200 hover:text-black'} rounded-lg  duration-300`}
+                  onClick={ () => {setMode(1)}}
+                  >Completed</button>
+                <button 
+                  className={`px-4 py-2 ${mode === 2 ? 'bg-black text-white' : 'bg-white text-black hover:bg-gray-200 hover:text-black'} rounded-lg  duration-300`}
+                  onClick={() => {setMode(2)}}
+                  >Incomplete</button>
+            </div>
             {
                 loading ? (
                     <div>
@@ -59,10 +74,15 @@ function Home() {
                     <div>
                         <div className=' mx-8 md:mx-32 p-1 rounded-xl bg-white shadow-md'>
                             {
-                                
                                 <div className='mx-4'>
                                     {
                                         tasks.map((t)=>{
+                                            if((mode === 1 && t.isCompleted === false) || (mode === 2 && t.isCompleted === true) )
+                                            {
+                                                return(
+                                                    <div></div>
+                                                );
+                                            }
                                             return(
                                                 <div key={t._id} className='flex flex-col md:flex-row w-full justify-between my-4'>
                                                     <div className='flex gap-x-4'>
