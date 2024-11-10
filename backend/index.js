@@ -24,6 +24,18 @@ app.get("/", async (req,res)=>{
     }
 });
 
+app.get("/:id" , async (req,res)=>{
+    const id = req.params.id;
+    try {
+        const response = await Tasks.findById(id);
+        console.log(response);
+        res.send(response);
+    } catch (error) {
+        console.log(error);
+        res.send(error);
+    }
+});
+
 app.post("/" , async (req,res)=>{
     try {
         const newtask = {
@@ -47,7 +59,50 @@ app.post("/" , async (req,res)=>{
         console.log(error);
         res.send(error);
     }
+});
 
+app.put("/:id" , async (req,res)=>{
+    const id = req.params.id;
+    const newtask = req.body;
+    if(!newtask.title || !newtask.description ){
+        res.send("<h1>please fill all the fields</h1>");
+    }
+
+    try 
+    {
+        const response = await Tasks.findByIdAndUpdate(id,newtask);
+        if(!response)
+        {
+            res.send("task not found");
+        }
+        else
+        {
+            res.send(response);
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.send(error);
+    }
+});
+
+app.delete("/:id" , async (req,res)=>{
+    const id = req.params.id;
+    try {
+        const response = await Tasks.findByIdAndDelete(id);
+        if(!response)
+        {
+            res.send("task not found");
+        }
+        else
+        {
+            console.log(response);
+            res.send(response);
+        }
+    } catch (error) {
+        console.log(error);
+        res.send(error);
+    }
 });
 
 mongoose
