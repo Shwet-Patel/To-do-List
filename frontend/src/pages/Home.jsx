@@ -93,10 +93,12 @@ function Home() {
                                 </div>
                             }
                         </div>
-                        <button 
-                            className='flex justify-self-center my-4 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-200 hover:text-black duration-300'
-                            onClick={()=>{navigate('/tasks/create')}}
-                            > Add Task </button>
+                        <div className='flex flex-col mt-4 md:flex-row md:w-full justify-center' >
+                            <button 
+                            className=' mx-8 md:px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-200 hover:text-black duration-300'
+                            onClick={() => {navigate('/tasks/create')}}>Add Task</button>
+                            
+                        </div>
                     </div>
                 )
             }
