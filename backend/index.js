@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import Tasks from './models/taskModel.js';
+import cors from 'cors';
 
 const app = express();
 dotenv.config();
@@ -10,6 +11,7 @@ const port = process.env.PORT;
 const mongoURL = process.env.MONGOURL;
 
 //middlewares
+app.use(cors());
 app.use(express.json());
 
 app.get("/", async (req,res)=>{
