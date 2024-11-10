@@ -48,8 +48,8 @@ function Home() {
     };
 
     return (
-        <div className=' bg-gray-100 h-screen'>
-            <div className=' text-center text-5xl py-20 font-semibold' >To-do List</div>
+        <div className=' bg-gray-100 min-h-screen pb-16'>
+            <div className='mx-8 text-center text-3xl md:text-5xl py-20 font-semibold' >To-do List</div>
             {
                 loading ? (
                     <div>
@@ -57,7 +57,7 @@ function Home() {
                     </div>
                 ) : (
                     <div>
-                        <div className=' mx-20 p-1 rounded-xl bg-white shadow-md'>
+                        <div className=' mx-8 md:mx-32 p-1 rounded-xl bg-white shadow-md'>
                             {
                                 
                                 <div className='mx-4'>

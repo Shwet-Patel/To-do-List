@@ -41,41 +41,41 @@ function DeleteTask() {
 
 
   return (
-    <div className=' bg-gray-100 h-screen'>
-      <div className=' text-center text-5xl py-20 font-semibold' >{ loading ? '...' : task.title }</div>
+    <div className=' bg-gray-100 min-h-screen pb-16'>
+      <div className='mx-8 text-center text-3xl md:text-5xl py-20 font-semibold' >{ loading ? '...' : task.title }</div>
       {
         loading ? (
           <div>
             <Spinner />
           </div>
         ) : (
-          <div className=' mx-20 rounded-xl bg-white shadow-md'>
-            <div className='py-4 text-center text-xl font-medium'>
+          <div className=' mx-8 md:mx-32 rounded-xl bg-white shadow-md'>
+            <div className='mx-2 py-4 text-center text-base md:text-xl font-medium'>
               Are you sure you want to delete the following task?
             </div>
 
-            <div className=''>
-              <div className='mx-8 my-4'>
-                <div className=' text-xl' >Title : </div>
-                <div className=' text.md text-gray-800'> {task.title} </div>
+            <div className='px-4'>
+              <div className='md:mx-8 my-4'>
+                <div className=' text-base md:text-xl' >Title : </div>
+                <div className=' text-base text-gray-800'> {task.title} </div>
               </div>
-              <div className='mx-8 my-4'>
-                <div className=' text-xl' >Description : </div>
-                <div className=' text.md text-gray-800'> {task.description} </div>
+              <div className='md:mx-8 my-4'>
+                <div className=' text-base md:text-xl' >Description : </div>
+                <div className=' text-base text-gray-800'> {task.description} </div>
               </div>
-              <div className='mx-8 my-4'>
-                <div className=' text-xl' >Is completed : </div>
-                <div className=' text.md text-gray-800'> {task.isCompleted ? 'Yes' : 'No'} </div>
+              <div className='md:mx-8 my-4'>
+                <div className=' text-base md:text-xl' >Is completed : </div>
+                <div className=' text-base text-gray-800'> {task.isCompleted ? 'Yes' : 'No'} </div>
               </div>
             </div>
 
-            <div className='py-4 flex w-full justify-center gap-x-8' >
+            <div className='px-4 py-4 flex flex-col mt-4 md:flex-row md:w-full justify-center gap-4' >
                 <button 
-                  className='px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-400 hover:text-black duration-300'
+                  className='md:px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-400 hover:text-black duration-300'
                   onClick={() => {navigate('/')}}
                   >No, go back</button>
                 <button 
-                  className='px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-400 hover:text-black duration-300'
+                  className='md:px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-400 hover:text-black duration-300'
                   onClick={handleDelete}
                   >Yes, delete</button>
               </div>
