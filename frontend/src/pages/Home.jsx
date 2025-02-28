@@ -50,7 +50,7 @@ function Home() {
 
     return (
         <div className=' bg-gray-100 min-h-screen pb-16'>
-            <div className='mx-8 text-center text-3xl md:text-5xl py-20 font-semibold' >To-do List</div>
+            <div className='mx-8 text-center text-3xl md:text-5xl py-20 font-semibold' >Weekend Plan</div>
             <div className='flex my-4 flex-row w-full justify-center gap-4' >
                 <button
                     className={`px-4 py-2 ${mode === 0 ? 'bg-black text-white' : 'bg-white text-black hover:bg-gray-200 hover:text-black'} rounded-lg duration-300`}
